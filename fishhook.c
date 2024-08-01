@@ -130,6 +130,9 @@ static void perform_rebinding_with_section(struct rebindings_entry *rebindings,
     char *symbol_name = strtab + strtab_offset;
     bool symbol_name_longer_than_1 = symbol_name[0] && symbol_name[1];
     struct rebindings_entry *cur = rebindings;
+    if (!symbol_name_longer_than_1) {
+      continue;
+    }
     while (cur) {
       for (uint j = 0; j < cur->rebindings_nel; j++) {
         if (symbol_name_longer_than_1 && strcmp(&symbol_name[1], cur->rebindings[j].name) == 0) {
