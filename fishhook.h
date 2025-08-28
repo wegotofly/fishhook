@@ -55,14 +55,14 @@ struct rebinding {
  * rebind are added to the existing list of rebindings, and if a given symbol
  * is rebound more than once, the later rebinding will take precedence.
  */
-FISHHOOK_VISIBILITY
+//FISHHOOK_VISIBILITY
 int rebind_symbols(struct rebinding rebindings[], size_t rebindings_nel);
 
 /*
  * Rebinds as above, but only in the specified image. The header should point
  * to the mach-o header, the slide should be the slide offset. Others as above.
  */
-FISHHOOK_VISIBILITY
+//FISHHOOK_VISIBILITY
 int rebind_symbols_image(void *header,
                          intptr_t slide,
                          struct rebinding rebindings[],
