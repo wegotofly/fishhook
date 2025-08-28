@@ -1,12 +1,11 @@
-# fishhook
+# fishhook test
 
-__fishhook__ is a very simple library that enables dynamically rebinding symbols in Mach-O binaries running on iOS in the simulator and on device. This provides functionality that is similar to using [`DYLD_INTERPOSE`][interpose] on OS X. At Facebook, we've found it useful as a way to hook calls in libSystem for debugging/tracing purposes (for example, auditing for double-close issues with file descriptors).
-
-[interpose]: http://opensource.apple.com/source/dyld/dyld-210.2.3/include/mach-o/dyld-interposing.h "<mach-o/dyld-interposing.h>"
+__fishhook__ is a very simple library that enables dynamically rebinding symbols in Mach-O binaries running on iOS in the simulator and on device. This provides functionality that is similar to using  on OS X. At Facebook, we've found it useful as a way to hook calls in libSystem for debugging/tracing purposes (for example, auditing for double-close issues with file descriptors).
 
 ## Usage
 
 Once you add `fishhook.h`/`fishhook.c` to your project, you can rebind symbols as follows:
+
 ```Objective-C
 #import <dlfcn.h>
 
@@ -57,7 +56,9 @@ int main(int argc, char * argv[])
   }
 }
 ```
+
 ### Sample output
+
 ```
 Calling real open('/var/mobile/Applications/161DA598-5B83-41F5-8A44-675491AF6A2C/Test.app/Test', 0)
 Mach-O Magic Number: feedface 
@@ -73,3 +74,5 @@ For a given image, the `__DATA` segment may contain two sections that are releva
 
 The process of looking up the name of a given entry in the lazy or non-lazy pointer tables looks like this:
 ![Visual explanation](http://i.imgur.com/HVXqHCz.png)
+
+[interpose]: http://opensource.apple.com/source/dyld/dyld-210.2.3/include/mach-o/dyld-interposing.h
